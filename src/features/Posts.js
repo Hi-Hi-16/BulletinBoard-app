@@ -14,6 +14,20 @@ export const postSlice = createSlice({
     },
 });
 
+const value = 'some-param-value'
+
+const url = new URL(window.location.href);
+const searchParams = url.searchParams;
+searchParams.set('someparam', value);
+
+url.search = searchParams.toString();
+const newUrl = url.toString();
+window.history.replaceState(
+    {...window.history.state, as: newUrl, url: newUrl},
+    undefined,
+    newUrl
+);
+
 export const {addPost, deletePost} = postSlice.actions;
 export default postSlice.reducer;
 
