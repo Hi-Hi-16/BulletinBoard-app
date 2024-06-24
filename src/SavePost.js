@@ -2,12 +2,12 @@
 let posts = [];
 
 // 投稿ボタンがクリックされたときの処理
-document.getElementById('postButton').addEventListener('click', function() {
+document.getElementById("posts").addEventListener('click', function() {
     // テキストエリアから投稿内容を取得
     let post = document.getElementById('postTextArea').value;
 
     // 投稿内容を配列に追加
-    posts.push(post);
+    posts.push(posts);
 
     // 配列をJSONに変換
     let jsonPosts = JSON.stringify(posts);
@@ -19,7 +19,7 @@ document.getElementById('postButton').addEventListener('click', function() {
 // ページ読み込み時にLocalStorageから投稿を読み込む
 window.addEventListener('load', function() {
     // LocalStorageから投稿を取得
-    let jsonPosts = localStorage.getItem('posts');
+    let jsonPosts = localStorage.getItem("posts");
 
     // JSONを配列に変換
     posts = JSON.parse(jsonPosts);
